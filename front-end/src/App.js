@@ -1,12 +1,12 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import IndexOfSnacks from "./Components/IndexOfSnacks";
-import ShowSnack from "./Components/ShowSnack";
-import NewSnack from "./Components/NewSnack";
-import HeartHealth from "./Components/HeartHealth";
-import EditSnack from "./Components/EditSnack";
+// import HeartHealth from "./Components/HeartHealth";
 import Nav from "./Components/NavBar";
 import Home from "./Pages/Home";
 import FourOFour from "./Pages/FourOFour";
+import Index from "./Pages/Index";
+import Show from "./Pages/Show";
+import New from "./Pages/New";
+import Edit from "./Pages/Edit";
 
 function App() {
   return (
@@ -15,11 +15,11 @@ function App() {
         <Nav />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/snacks" element={<IndexOfSnacks />} />
-          <Route path="/snacks/:id" element={<ShowSnack />} />
-          <Route path="/snacks/new" element={<NewSnack />} />
-          <Route path="/snacks/edit/:id" element={<EditSnack />} />
-          <Route path="/snacks/health" element={<HeartHealth />} />
+          <Route path="/snacks" element={<Index />} />
+          <Route path="/snacks/:id" element={<Show />} />
+          <Route path="/snacks/new" element={<New />} />
+          <Route path="/snacks/edit/:id" element={<Edit />} />
+          {/* <Route path="/snacks/health" element={<HeartHealth />} /> */}
           <Route path="*" element={<FourOFour />} />
         </Routes>
       </Router>
