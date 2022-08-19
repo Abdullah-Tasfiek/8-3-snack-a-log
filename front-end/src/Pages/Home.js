@@ -1,5 +1,3 @@
-import { Link } from "react-router-dom";
-
 const Home = () => {
   return (
     <div>
@@ -11,9 +9,7 @@ const Home = () => {
       </h3>
       <h3>Edit a Snack, or simply delete the entry all together!</h3>
       <h4>Please, enjoy!</h4>
-      <Link className="snack-list" to="/snacks">
-        Snacks List
-      </Link>
+
     </div>
   );
 };

@@ -39,11 +39,11 @@ const ShowSnack = () => {
       <button>
         <Link to={"/snacks"}>Back</Link>
       </button>
-      <br />
+      <br/>
       <button>
         <Link to={`/snacks/edit/${id}`}>Edit Snack</Link>
       </button>
-      <br />
+      <br></br>
       <button id={snacks.id} onClick={handleDelete}>
         Delete Entry
       </button>
