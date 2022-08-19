@@ -3,7 +3,7 @@ import ShowSnack from "../Components/ShowSnack";
 function Show() {
   return (
     <div className="Show">
-      <h2>Snack Details</h2>
+      <h2>Snacks</h2>
       <ShowSnack />
     </div>
   );

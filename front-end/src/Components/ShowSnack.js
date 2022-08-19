@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import heartSolid from "../assets/heart-solid.png";
+import heartOutline from "../assets/heart-regular.png";
 
 const ShowSnack = () => {
   const [snacks, setSnacks] = useState([]);
@@ -29,17 +31,27 @@ const ShowSnack = () => {
   const { name, fiber, protein, added_sugar, is_healthy, image } = snacks;
   return (
     <div>
-      <h1>{name}</h1>
-      <h3>Fiber Count: {fiber}g</h3>
-      <h3>Protein Count: {protein}g</h3>
-      <h3>Added Sugar Count: {added_sugar}g</h3>
-      <h4>Is it Healthy? {is_healthy ? " ❤️" : " 💀"}</h4>
-      <img type="submit" src={image} alt="" />
+      <h3>{name}</h3>
+      <aside>
+        <img
+          src={is_healthy ? heartSolid : heartOutline}
+          alt={is_healthy ? "healthy food" : "unhealthy food"}
+        />
+      </aside>
+      <article>
+        <div>
+          <img src={image} alt={name} />
+          <h3>Fiber: {fiber}g</h3>
+          <h3>Protein: {protein}g</h3>
+          <h3>Added Sugar: {added_sugar}g</h3>
+        </div>
+      </article>
+
       <br />
-      <button>
+      <button href="/snacks">
         <Link to={"/snacks"}>Back</Link>
       </button>
-      <br/>
+      <br />
       <button>
         <Link to={`/snacks/edit/${id}`}>Edit Snack</Link>
       </button>
