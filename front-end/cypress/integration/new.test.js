@@ -54,4 +54,3 @@ describe("The New page", () => {
     });
   });
 });
-})
