@@ -18,7 +18,7 @@ function App() {
           <Route path="/snacks" element={<IndexOfSnacks />} />
           <Route path="/snacks/:id" element={<ShowSnack />} />
           <Route path="/snacks/new" element={<NewSnack />} />
-          <Route path="/snacks/edit" element={<EditSnack />} />
+          <Route path="/snacks/edit/:id" element={<EditSnack />} />
           <Route path="/snacks/health" element={<HeartHealth />} />
           <Route path="*" element={<FourOFour />} />
         </Routes>
