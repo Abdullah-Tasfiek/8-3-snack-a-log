@@ -8,19 +8,6 @@ const ShowSnack = () => {
   const navigate = useNavigate();
   const API = process.env.REACT_APP_API_URL;
 
-  // useEffect(() => {
-  //   const API = process.env.REACT_APP_API_URL;
-  //   axios
-  //     .get(`${API}/snacks/${id}`)
-  //     .then((response) => {
-  //       setSnacks(response.data.payload);
-  //     })
-  //     .catch((e) => {
-  //       console.log(e);
-  //     });
-  // }, [id]);
-  // console.log(snacks);
-
   useEffect(() => {
     axios.get(`${API}/snacks/${id}`).then((response) => {
       setSnacks(response.data);
@@ -35,21 +22,6 @@ const ShowSnack = () => {
       .catch((c) => console.error("catch", c));
   };
 
-  // const handleDelete = (event) => {
-  //   event.preventDefault();
-  //   const { id } = event.target;
-  //   console.log("HandleDelte:", id);
-  //   const API = process.env.REACT_APP_API_URL;
-  //   axios.delete(`${API}/snacks/${id}`).then((response) => {
-  //     setSnacks(
-  //       snacks.filter((snack) => {
-  //         return snack.id !== parseInt(id);
-  //       })
-  //     );
-  //     navigate("/snacks")
-  //   });
-  // };
-
   const handleDelete = () => {
     deleteSnack();
   };
@@ -63,17 +35,14 @@ const ShowSnack = () => {
       <h3>Added Sugar Count: {added_sugar}g</h3>
       <h4>Is it Healthy? {is_healthy ? " ❤️" : " 💀"}</h4>
       <img type="submit" src={image} alt="" />
-      <br></br>
-      <button id={snacks.id} onChange={handleDelete}>
-        Delete Entry
+      <button>
+        <Link to={"/snacks"}>Back</Link>
       </button>
-      <br></br>
       <button>
         <Link to={`/snacks/edit/${id}`}>Edit Snack</Link>
       </button>
-      <br></br>
-      <button>
-        <Link to={"/snacks"}>Back</Link>
+      <button id={snacks.id} onClick={handleDelete}>
+        Delete Entry
       </button>
     </div>
   );
