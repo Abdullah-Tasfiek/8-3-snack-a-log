@@ -4,7 +4,7 @@ import { useParams, Link, useNavigate } from "react-router-dom";
 const API = process.env.REACT_APP_API_URL;
 
 function EditSnack() {
-  let { id } = useParams();
+  const { id } = useParams();
   const navigate = useNavigate();
 
   const [snack, setSnack] = useState({
@@ -24,22 +24,25 @@ function EditSnack() {
   };
 
   useEffect(() => {
-    axios.get(`${API}/snacks/${id}`).then(
-      (response) => setSnack(response.data.payload),
-      (error) => navigate("/not-found")
-    );
+    axios
+      .get(`${API}/snacks/${id}`)
+      .then((response) => {
+        setSnack(response.data.payload);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }, [id, navigate]);
 
   const updateSnack = (editedSnack) => {
     axios
       .put(`${API}/snacks/${id}`, editedSnack)
-      .then(
-        () => {
-          navigate(`/snacks/${id}`);
-        },
-        (error) => console.error(error)
-      )
-      .catch((c) => console.warn("catch", c));
+      .then(() => {
+        navigate(`/snacks`);
+      })
+      .catch((c) => {
+        console.warn("catch", c);
+      });
   };
 
   const handleSubmit = (event) => {
@@ -50,7 +53,7 @@ function EditSnack() {
   return (
     <div className="Edit">
       <form onSubmit={handleSubmit} id="edit-form">
-        <label htmlFor="name">Name: </label>
+        <label for="name">Name: </label>
         <br></br>
         <input
           id="name"
@@ -60,29 +63,29 @@ function EditSnack() {
           required
         />
         <br></br>
-        <label htmlFor="fiber-count">Fiber Count: </label>
+        <label for="fiber">Fiber: </label>
         <br></br>
         <input
-          id="fiber-count"
+          id="fiber"
           type="number"
           name="fiber-count"
           value={snack.fiber}
           onChange={handleTextChange}
         />
         <br></br>
-        <label htmlFor="protein-count">Protein Count: </label>
+        <label for="protein">Protein: </label>
         <br></br>
         <input
-          id="protein-count"
+          id="protein"
           type="number"
           value={snack.protein}
           onChange={handleTextChange}
         />
         <br></br>
-        <label htmlFor="added-sugar">Any Added Sugars? </label>
+        <label for="added_sugar">Added Sugars: </label>
         <br></br>
         <input
-          id="added-sugar"
+          id="added_sugar"
           type="number"
           value={snack.added_sugar}
           onChange={handleTextChange}
@@ -97,10 +100,10 @@ function EditSnack() {
           onChange={handleCheckbox}
         />
         <br></br>
-        <label htmlFor="Image">Upload a Picture!</label>
+        <label for="image">Image</label>
         <br></br>
-        <input type="file" id="snack-picture" name="snack-pic" />
-        <input type="submit" />
+        <input type="text" id="image" name="snack-pic" value="image" />
+        {/* <input type="submit" /> */}
       </form>
 
       <Link to={`/snacks/${id}`}>

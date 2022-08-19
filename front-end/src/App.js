@@ -18,8 +18,7 @@ function App() {
           <Route path="/snacks" element={<Index />} />
           <Route path="/snacks/:id" element={<Show />} />
           <Route path="/snacks/new" element={<New />} />
-          <Route path="/snacks/edit/:id" element={<Edit />} />
-          {/* <Route path="/snacks/health" element={<HeartHealth />} /> */}
+          <Route path="/snacks/:id/edit" element={<Edit />} />
           <Route path="*" element={<FourOFour />} />
         </Routes>
       </Router>
