@@ -3,37 +3,28 @@ import { useParams, Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const ShowSnack = () => {
+  const [snacks, setSnacks] = useState([]);
   const { id } = useParams();
-  const [snacks, setSnacks] = useState({});
   const navigate = useNavigate();
-
-  const handleDelete = (event) => {
-    event.preventDefault();
-    const { id } = event.target;
-    console.log("HandleDelte:", id);
-    const API = process.env.REACT_APP_API_URL;
-    axios.delete(`${API}/snacks/${id}`).then((response) => {
-      setSnacks(
-        snacks.filter((snack) => {
-          return snack.id !== parseInt(id);
-        })
-      );
-      navigate("/snacks")
-    });
-  };
+  const API = process.env.REACT_APP_API_URL;
 
   useEffect(() => {
-    const API = process.env.REACT_APP_API_URL;
+    axios.get(`${API}/snacks/${id}`).then((response) => {
+      setSnacks(response.data);
+    });
+  }, [id, navigate, API]);
+  const deleteSnack = () => {
     axios
-      .get(`${API}/snacks/${id}`)
-      .then((response) => {
-        setSnacks(response.data.payload);
+      .delete(`${API}/snacks/${id}`)
+      .then(() => {
+        navigate(`/snacks`);
       })
-      .catch((e) => {
-        console.log(e);
-      });
-  }, [id]);
-  console.log(snacks);
+      .catch((c) => console.error("catch", c));
+  };
+
+  const handleDelete = () => {
+    deleteSnack();
+  };
 
   const { name, fiber, protein, added_sugar, is_healthy, image } = snacks;
   return (
@@ -42,16 +33,17 @@ const ShowSnack = () => {
       <h3>Fiber Count: {fiber}g</h3>
       <h3>Protein Count: {protein}g</h3>
       <h3>Added Sugar Count: {added_sugar}g</h3>
-      <h4>Is it Healthy? {is_healthy ? ' ❤️' : ' 💀'}</h4>
-      <img type='submit' src={image} alt=''/>
-      <br></br>
-      <button id={snacks.id} onChange={handleDelete}>
+      <h4>Is it Healthy? {is_healthy ? " ❤️" : " 💀"}</h4>
+      <img type="submit" src={image} alt="" />
+      <button>
+        <Link to={"/snacks"}>Back</Link>
+      </button>
+      <button>
+        <Link to={`/snacks/edit/${id}`}>Edit Snack</Link>
+      </button>
+      <button id={snacks.id} onClick={handleDelete}>
         Delete Entry
       </button>
-      <br></br>
-      <button><Link to={`/snacks/edit/${id}`}>Edit Snack</Link></button>
-      <br></br>
-      <button><Link to={'/snacks'}>Back</Link></button>
     </div>
   );
 };
