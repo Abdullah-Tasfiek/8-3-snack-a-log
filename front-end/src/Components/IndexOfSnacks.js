@@ -24,7 +24,7 @@ const SnackIndex = () => {
   const handleDelete = (event) => {
     event.preventDefault();
     const { id } = event.target;
-    console.log("HandleDelte:", id);
+    console.log("HandleDelete:", id);
     const API = process.env.REACT_APP_API_URL;
     axios.delete(`${API}/snacks/${id}`).then((response) => {
       setSnacks(
