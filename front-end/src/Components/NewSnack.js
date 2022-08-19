@@ -1,109 +1,91 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
+const API = process.env.REACT_APP_API_URL;
 
-const NewSnack = () => {
-  const [name, setName] = useState("");
-  const [fiber, setFiber] = useState(0);
-  const [protein, setProtein] = useState(0);
-  const [added_sugar, setAdded_Sugar] = useState(0);
-  const [is_healthy, setIs_Healthy] = useState(false);
-  const [image, setImage] = useState("");
-
+function NewSnack() {
   const navigate = useNavigate();
+  const [snack, setSnack] = useState({
+    name: "",
+    fiber: 0,
+    protein: 0,
+    added_sugar: 0,
+    is_healthy: false,
+    image: "",
+  });
 
-  const handleSubmit = (event) => {
-    const API = process.env.REACT_APP_API_URL;
-
-    event.preventDefault();
-
-    const newSnackRoute = `${API}/snacks/new`;
-
-    fetch(newSnackRoute, {
-      method: "POST",
-      body: JSON.stringify({
-        name,
-        fiber,
-        protein,
-        added_sugar,
-        is_healthy,
-        image,
-      }),
-      headers: { "Content-Type": "application/json" },
-    })
-      .then((res) => {
-        return res.json();
-      })
-      .then((data) => {
-        console.log(data);
-        navigate("/snacks");
-      })
-      .catch((e) => {
-        console.log(e);
-      });
+  const handleTextChange = (event) => {
+    setSnack({ ...snack, [event.target.id]: event.target.value });
   };
 
-  return <form onSubmit={handleSubmit}>
-    <h1>Add a New Snack!</h1>
-    <label>Snack Name:</label>
-    <input
+  const handleCheckbox = () => {
+    setSnack({ ...snack, is_healthy: !snack.is_healthy });
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    axios
+      .post(`${API}/snacks`, snack)
+      .then((res) => {
+        navigate(`/snacks`);
+      })
+      .catch((err) => {
+        console.warn(err);
+      });
+  };
+  return (
+    <form onSubmit={handleSubmit}>
+      <h3>Add a New Snack!</h3>
+      <label for="name">Name:</label>
+      <input
         type="text"
         name="snack-name"
-        onChange={(event) =>{
-            setName(event.target.value)
-        }}
-        id='new-snack-name'
-        />
-        <label>Fiber Amount:</label>
-        <input
-            type="number"
-            name="fiber-count"
-            onChange={(event) => {
-                setFiber(event.target.value)
-            }}
-            id='fiber-count'
-            />
-            <label>Protein Amount:</label>
-            <input
-                type='number'
-                name='protein-count'
-                onChange={(event) => {
-                    setProtein(event.target.value)
-                }}
-                id='protein-count'
-                />
-            <label>Any Added Sugars?:</label>
-            <input 
-                type='number'
-                name='added-sugar-count'
-                onChange={(event) => {
-                    setAdded_Sugar(event.target.value)
-                }}
-                id='added-sugar-count'
-                />
-            <label>Is it Healthy?</label>
-            <input
-                type='checkbox'
-                name='healthy'
-                onClick={(event) => {
-                    setIs_Healthy(!is_healthy)
-                }}
-                id='healthy'
-                />
-            <label>Snack Image</label>
-            <input
-                type='text'
-                alt='snack'
-                name='snack-image'
-                onChange={(event) => {
-                    setImage(event.target.value)
-                }}
-                id='snack-image'
-                placeholder='Place Image Link Here...'
-                />
+        onChange={handleTextChange}
+        id="name"
+      />
+      <label for="fiber">Fiber:</label>
+      <input
+        type="number"
+        name="fiber-count"
+        onChange={handleTextChange}
+        id="fiber"
+      />
+      <label for="protein">Protein:</label>
+      <input
+        type="number"
+        name="protein-count"
+        onChange={handleTextChange}
+        id="protein"
+      />
+      <label for="added_sugar">Added Sugars:</label>
+      <input
+        type="number"
+        name="added-sugar-count"
+        onChange={handleTextChange}
+        id="added_sugar"
+      />
+      <label>Is it Healthy?</label>
+      <input
+        type="checkbox"
+        name="healthy"
+        onClick={handleCheckbox}
+        id="healthy"
+      />
+      <label for="image">Image</label>
+      <input
+        type="text"
+        alt="snack"
+        name="image"
+        onChange={handleTextChange}
+        id="image"
+        placeholder="Place Image Link Here..."
+      />
 
-                <br></br>
-                <input type='submit' value='submit'/>
-  </form>;
-};
+      <br></br>
+      <input type="submit" value="submit" />
+    </form>
+  );
+}
 
 export default NewSnack;

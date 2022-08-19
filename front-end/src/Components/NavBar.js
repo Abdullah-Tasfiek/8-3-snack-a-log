@@ -3,7 +3,7 @@ import React from "react";
 
 const Nav = () => {
   return (
-    <div className="nav" id="nav">
+    <nav>
       <Link className="nav-link" to="/snacks">
         <h2>Snack-A-Log!</h2>
       </Link>
@@ -11,7 +11,7 @@ const Nav = () => {
       <Link className="nav-link" to="/snacks/new">
         <button href="/snacks/new">New Snack</button>
       </Link>
-    </div>
+    </nav>
   );
 };
 

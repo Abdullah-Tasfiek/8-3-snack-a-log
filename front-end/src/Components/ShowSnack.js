@@ -34,6 +34,7 @@ const ShowSnack = () => {
       <h3>{name}</h3>
       <aside>
         <img
+          className="hearts"
           src={is_healthy ? heartSolid : heartOutline}
           alt={is_healthy ? "healthy food" : "unhealthy food"}
         />
@@ -53,7 +54,7 @@ const ShowSnack = () => {
       </button>
       <br />
       <button>
-        <Link to={`/snacks/edit/${id}`}>Edit Snack</Link>
+        <Link to={`/snacks/${id}/edit`}>Edit Snack</Link>
       </button>
       <br></br>
       <button id={snacks.id} onClick={handleDelete}>
