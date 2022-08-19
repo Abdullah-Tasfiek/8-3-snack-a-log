@@ -10,7 +10,7 @@ const ShowSnack = () => {
 
   useEffect(() => {
     axios.get(`${API}/snacks/${id}`).then((response) => {
-      setSnacks(response.data);
+      setSnacks(response.data.payload);
     });
   }, [id, navigate, API]);
   const deleteSnack = () => {
@@ -35,12 +35,15 @@ const ShowSnack = () => {
       <h3>Added Sugar Count: {added_sugar}g</h3>
       <h4>Is it Healthy? {is_healthy ? " ❤️" : " 💀"}</h4>
       <img type="submit" src={image} alt="" />
+      <br />
       <button>
         <Link to={"/snacks"}>Back</Link>
       </button>
+      <br />
       <button>
         <Link to={`/snacks/edit/${id}`}>Edit Snack</Link>
       </button>
+      <br />
       <button id={snacks.id} onClick={handleDelete}>
         Delete Entry
       </button>
