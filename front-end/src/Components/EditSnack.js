@@ -103,7 +103,8 @@ function EditSnack() {
         <label for="image">Image</label>
         <br></br>
         <input type="text" id="image" name="snack-pic" value="image" />
-        {/* <input type="submit" /> */}
+        <br></br>
+        <input type="submit" />
       </form>
 
       <Link to={`/snacks/${id}`}>

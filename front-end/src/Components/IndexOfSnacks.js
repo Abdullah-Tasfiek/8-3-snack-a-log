@@ -23,14 +23,18 @@ const SnackIndex = () => {
   return (
     <div className="Snacks">
       <section>
-        <h1>Snacks List</h1>
-        <table>
-          <tbody>
-            {snacks.map((snack) => {
-              return <Snack key={snack.id} snack={snack} />;
-            })}
-          </tbody>
-        </table>
+        <article className="Snacks">
+          <div className="Snacks">
+            <h1>Snacks List</h1>
+            <table>
+              <tbody>
+                {snacks.map((snack) => {
+                  return <Snack key={snack.id} snack={snack} />;
+                })}
+              </tbody>
+            </table>
+          </div>
+        </article>
       </section>
       <button>
         <Link to="/">Back</Link>

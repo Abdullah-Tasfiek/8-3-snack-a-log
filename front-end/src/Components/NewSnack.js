@@ -36,7 +36,7 @@ function NewSnack() {
   };
   return (
     <form onSubmit={handleSubmit}>
-      <h4>Add a New Snack!</h4>
+      <h3>Add a New Snack!</h3>
       <label for="name">Name:</label>
       <input
         type="text"

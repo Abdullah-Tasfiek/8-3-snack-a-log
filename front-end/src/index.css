@@ -1,0 +1,61 @@
+body {
+    font-family: "Overlock";
+}
+
+h1 {
+    font-family: "Carter One";
+}
+
+main {
+    width: 90%;
+    margin: auto;
+}
+
+nav {
+    display: flex;
+    background-color: rgb(37, 36, 34);
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em 3em 1em 3em;
+    margin-bottom: 1em;
+}
+
+a {
+    text-decoration: none;
+    color: rgb(235, 94, 40);
+}
+
+h4 {
+    margin: 0;
+    font-size: 1em;
+    text-align: center;
+}
+
+article.Snacks{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 15px;
+
+}
+
+div.Snacks {
+    width: 150px;
+    padding: 1em;
+    background-color: rgb(255, 252, 242);
+}
+
+.Snacks img {
+    width: 150px
+}
+
+tbody {
+display: grid;
+grid-template-columns: repeat(5, 1fr);
+  }
+
+img.hearts {
+    width: 37.5px;
+    text-align: center;
+    margin-top: 50px;
+}

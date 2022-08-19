@@ -14,8 +14,11 @@ function Snack({ snack }) {
             />
           </span>
           {snack.name}
-          Healthy:
-          <img src={snack.is_healthy ? heartSolid : heartOutline} alt="heart" />
+          <img
+            className="hearts"
+            src={snack.is_healthy ? heartSolid : heartOutline}
+            alt="heart"
+          />
         </h4>
       </Link>
     </div>

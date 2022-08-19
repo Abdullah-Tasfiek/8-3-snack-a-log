@@ -2,14 +2,16 @@ const Home = () => {
   return (
     <div>
       <h1>Welcome to Snack-A-Log!</h1>
-      <h3>Add and keep track of all your favoirte snacks!</h3>
-      <h3>
+      <h5>
+        This app will help add and keep track of all your favoirte snacks!
+      </h5>
+      <h5>
         Concerned about the health implications? Health Information comes
         included!
-      </h3>
-      <h3>Edit a Snack, or simply delete the entry all together!</h3>
-      <h4>Please, enjoy!</h4>
-
+      </h5>
+      <h5>Edit a Snack, or simply delete the entry all together!</h5>
+      <h5>Click the top text to enter Snack-A-Log!</h5>
+      <h4>Thank you for choosing Snack-A-Log!</h4>
     </div>
   );
 };
