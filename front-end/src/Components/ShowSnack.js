@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const ShowSnack = () => {
   const { id } = useParams();
   const [snacks, setSnacks] = useState({});
+  const navigate = useNavigate();
 
   const handleDelete = (event) => {
     event.preventDefault();
@@ -17,6 +18,7 @@ const ShowSnack = () => {
           return snack.id !== parseInt(id);
         })
       );
+      navigate("/snacks")
     });
   };
 
@@ -37,15 +39,19 @@ const ShowSnack = () => {
   return (
     <div>
       <h1>{name}</h1>
-      <h3>{fiber}</h3>
-      <h3>{protein}</h3>
-      <h3>{added_sugar}</h3>
-      <h4>{is_healthy}</h4>
-      <img src={image} alt=''/>
+      <h3>Fiber Count: {fiber}g</h3>
+      <h3>Protein Count: {protein}g</h3>
+      <h3>Added Sugar Count: {added_sugar}g</h3>
+      <h4>Is it Healthy? {is_healthy ? ' ❤️' : ' 💀'}</h4>
+      <img type='submit' src={image} alt=''/>
+      <br></br>
       <button id={snacks.id} onChange={handleDelete}>
         Delete Entry
       </button>
-      <Link to={`/snacks/edit/${id}`}>Edit Snack</Link>
+      <br></br>
+      <button><Link to={`/snacks/edit/${id}`}>Edit Snack</Link></button>
+      <br></br>
+      <button><Link to={'/snacks'}>Back</Link></button>
     </div>
   );
 };

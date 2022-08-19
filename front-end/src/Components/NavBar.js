@@ -16,10 +16,6 @@ const Nav = () => {
       <Link className="nav-link" to="/snacks/new">
         New Snack
       </Link>
-      <br></br>
-      <Link className="nav-link" to="/snacks/edit">
-        Edit Snacks
-      </Link>
     </div>
   );
 };
