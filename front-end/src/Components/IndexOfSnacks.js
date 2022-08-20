@@ -18,21 +18,16 @@ const SnackIndex = () => {
         console.log(e);
       });
   }, []);
-  console.log(snacks);
 
   return (
-    <div className="Snacks">
-      <section>
+    <div>
+      <section className="Card">
         <article className="Snacks">
-          <div className="Snacks">
-            <h1>Snacks List</h1>
-            <table>
-              <tbody>
-                {snacks.map((snack) => {
-                  return <Snack key={snack.id} snack={snack} />;
-                })}
-              </tbody>
-            </table>
+          <h1>Snacks List</h1>
+          <div className="card">
+            {snacks.map((snack) => {
+              return <Snack key={snack.id} snack={snack} />;
+            })}
           </div>
         </article>
       </section>

@@ -31,26 +31,35 @@ h4 {
     text-align: center;
 }
 
-.Snack {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    padding: -15em;
+img {
+    width: 200px;
+}
+
+
+.Card {
     background-color: rgb(255, 252, 242);
     box-shadow: 5px 5px 13px;
-    margin: 10px;
+    margin: 1em;
+    padding: 1em;
 }
 
-.Snacks img {
-    width: 200px;
-    padding: 3em
-}
-
-tbody {
+div.card {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
+    margin: 1em;
   }
 
 img.hearts {
-    width: 20px;
+    width: 50px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+img.resize-heart {
+width: 50px;
+}
+
+.form {
+    text-align: center;
 }

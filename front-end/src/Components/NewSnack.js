@@ -35,56 +35,66 @@ function NewSnack() {
       });
   };
   return (
-    <form onSubmit={handleSubmit}>
-      <h3>Add a New Snack!</h3>
-      <label for="name">Name:</label>
-      <input
-        type="text"
-        name="snack-name"
-        onChange={handleTextChange}
-        id="name"
-      />
-      <label for="fiber">Fiber:</label>
-      <input
-        type="number"
-        name="fiber-count"
-        onChange={handleTextChange}
-        id="fiber"
-      />
-      <label for="protein">Protein:</label>
-      <input
-        type="number"
-        name="protein-count"
-        onChange={handleTextChange}
-        id="protein"
-      />
-      <label for="added_sugar">Added Sugars:</label>
-      <input
-        type="number"
-        name="added-sugar-count"
-        onChange={handleTextChange}
-        id="added_sugar"
-      />
-      <label>Is it Healthy?</label>
-      <input
-        type="checkbox"
-        name="healthy"
-        onClick={handleCheckbox}
-        id="healthy"
-      />
-      <label for="image">Image</label>
-      <input
-        type="text"
-        alt="snack"
-        name="image"
-        onChange={handleTextChange}
-        id="image"
-        placeholder="Place Image Link Here..."
-      />
+    <div className="form">
+      <div>
+        <h5>Snack Health is determined by</h5>
+        <ul>
+          <li>protein is above 5 grams</li>
+          <li>or fiber is above 5 grams</li>
+          <li>and sugar is less than 5 grams</li>
+        </ul>
+      </div>
+      <form onSubmit={handleSubmit} className="form">
+        <h3>Add a New Snack!</h3>
+        <label htmlFor="name">Name:</label>
+        <input
+          type="text"
+          name="snack-name"
+          onChange={handleTextChange}
+          id="name"
+        />
+        <label htmlFor="fiber">Fiber:</label>
+        <input
+          type="number"
+          name="fiber-count"
+          onChange={handleTextChange}
+          id="fiber"
+        />
+        <label htmlFor="protein">Protein:</label>
+        <input
+          type="number"
+          name="protein-count"
+          onChange={handleTextChange}
+          id="protein"
+        />
+        <label htmlFor="added_sugar">Added Sugars:</label>
+        <input
+          type="number"
+          name="added_sugar_count"
+          onChange={handleTextChange}
+          id="added_sugar"
+        />
+        <label htmlFor="healthy">Is it Healthy?</label>
+        <input
+          type="checkbox"
+          name="healthy"
+          onClick={handleCheckbox}
+          id="healthy"
+        />
+        <label htmlFor="image">Image</label>
+        <input
+          type="text"
+          alt="snack"
+          name="image"
+          onChange={handleTextChange}
+          id="image"
+          placeholder="Place Image Link Here..."
+        />
 
-      <br></br>
-      <input type="submit" value="submit" />
-    </form>
+        <br></br>
+        <input type="submit" value="submit" />
+      </form>
+    </div>
   );
 }
 

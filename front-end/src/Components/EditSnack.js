@@ -52,42 +52,50 @@ function EditSnack() {
 
   return (
     <div className="Edit">
+      <div>
+        <h5>Snack Health is determined by</h5>
+        <ul>
+          <li>protein is above 5 grams</li>
+          <li>or fiber is above 5 grams</li>
+          <li>and sugar is less than 5 grams</li>
+        </ul>
+      </div>
       <form onSubmit={handleSubmit} id="edit-form">
-        <label for="name">Name: </label>
+        <label htmlFor="name">Name: </label>
         <br></br>
         <input
           id="name"
-          value={snack.name}
+          value={`${snack.name}`}
           type="text"
           onChange={handleTextChange}
           required
         />
         <br></br>
-        <label for="fiber">Fiber: </label>
+        <label htmlFor="fiber">Fiber: </label>
         <br></br>
         <input
           id="fiber"
           type="number"
           name="fiber-count"
-          value={snack.fiber}
+          value={`${snack.fiber}`}
           onChange={handleTextChange}
         />
         <br></br>
-        <label for="protein">Protein: </label>
+        <label htmlFor="protein">Protein: </label>
         <br></br>
         <input
           id="protein"
           type="number"
-          value={snack.protein}
+          value={`${snack.protein}`}
           onChange={handleTextChange}
         />
         <br></br>
-        <label for="added_sugar">Added Sugars: </label>
+        <label htmlFor="added_sugar">Added Sugars: </label>
         <br></br>
         <input
           id="added_sugar"
           type="number"
-          value={snack.added_sugar}
+          value={`${snack.added_sugar}`}
           onChange={handleTextChange}
         />
         <br></br>
@@ -96,17 +104,22 @@ function EditSnack() {
         <input
           id="is-healthy"
           type="checkbox"
-          value={snack.is_healthy}
+          value={`${snack.is_healthy}`}
           onChange={handleCheckbox}
         />
         <br></br>
-        <label for="image">Image</label>
+        <label htmlFor="image">Image</label>
         <br></br>
-        <input type="text" id="image" name="snack-pic" value="image" />
+        <input
+          type="text"
+          id="image"
+          name="snack-pic"
+          value={`${snack.image}`}
+          onChange={handleTextChange}
+        />
         <br></br>
         <input type="submit" />
       </form>
-
       <Link to={`/snacks/${id}`}>
         <button className="back">{`Back to ${snack.name}`}</button>
       </Link>

@@ -4,7 +4,7 @@ import heartOutline from "../assets/heart-regular.png";
 
 function Snack({ snack }) {
   return (
-    <div className="Snack">
+    <div className="Card">
       <Link to={`/snacks/${snack.id}`}>
         <h4>
           <span>
@@ -13,13 +13,13 @@ function Snack({ snack }) {
               alt={snack.is_healthy ? "healthy food" : "unhealthy food"}
             />
           </span>
-          <h3>{snack.name}</h3>
-          <img
-            className="hearts"
-            src={snack.is_healthy ? heartSolid : heartOutline}
-            alt="heart"
-          />
         </h4>
+        <h4>{snack.name}</h4>
+        <img
+          className="hearts"
+          src={snack.is_healthy ? heartSolid : heartOutline}
+          alt="heart"
+        />
       </Link>
     </div>
   );

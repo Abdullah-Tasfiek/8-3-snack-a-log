@@ -32,14 +32,15 @@ const ShowSnack = () => {
   return (
     <div>
       <h3>{name}</h3>
-      <h3>{is_healthy ? "This is a healthy food" : "This is an unhealthy food"}</h3>
-      <aside>
+      <h3>
+        {is_healthy ? "This is a healthy food" : "This is an unhealthy food"}
+        &nbsp;&nbsp;
         <img
-          className="hearts"
+          className="resize-heart"
           src={is_healthy ? heartSolid : heartOutline}
           alt={is_healthy ? "healthy food" : "unhealthy food"}
         />
-      </aside>
+      </h3>
       <article>
         <div>
           <img src={image} alt={name} />
