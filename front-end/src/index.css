@@ -31,28 +31,24 @@ h4 {
     text-align: center;
 }
 
-article.Snacks{
+.Snack {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    padding: 15px;
-
-}
-
-div.Snacks {
-    width: 80em;
-    padding: 1em;
+    padding: -15em;
     background-color: rgb(255, 252, 242);
+    box-shadow: 5px 5px 13px;
+    margin: 10px;
 }
 
 .Snacks img {
-    width: 150px;
+    width: 200px;
     padding: 3em
 }
 
 tbody {
-display: grid;
-grid-template-columns: repeat(5, 1fr);
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
   }
 
 img.hearts {
