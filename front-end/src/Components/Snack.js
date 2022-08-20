@@ -13,7 +13,7 @@ function Snack({ snack }) {
               alt={snack.is_healthy ? "healthy food" : "unhealthy food"}
             />
           </span>
-          {snack.name}
+          <h3>{snack.name}</h3>
           <img
             className="hearts"
             src={snack.is_healthy ? heartSolid : heartOutline}

@@ -32,6 +32,7 @@ const ShowSnack = () => {
   return (
     <div>
       <h3>{name}</h3>
+      <h3>{is_healthy ? "This is a healthy food" : "This is an unhealthy food"}</h3>
       <aside>
         <img
           className="hearts"
