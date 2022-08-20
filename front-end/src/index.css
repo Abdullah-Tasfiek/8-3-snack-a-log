@@ -40,13 +40,14 @@ article.Snacks{
 }
 
 div.Snacks {
-    width: 150px;
+    width: 80em;
     padding: 1em;
     background-color: rgb(255, 252, 242);
 }
 
 .Snacks img {
-    width: 150px
+    width: 150px;
+    padding: 3em
 }
 
 tbody {
@@ -55,7 +56,5 @@ grid-template-columns: repeat(5, 1fr);
   }
 
 img.hearts {
-    width: 37.5px;
-    text-align: center;
-    margin-top: 50px;
+    width: 20px;
 }
