@@ -5,7 +5,6 @@ import Snack from "./Snack";
 
 const SnackIndex = () => {
   const [snacks, setSnacks] = useState([]);
-  // const navigate = useNavigate();
 
   useEffect(() => {
     const API = process.env.REACT_APP_API_URL;

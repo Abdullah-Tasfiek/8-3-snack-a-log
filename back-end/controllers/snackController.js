@@ -31,10 +31,6 @@ snacks.post("/", checkName, async (req, res) => {
   try {
     const snack = await createSnack(req.body);
     snack.name = nameFormatter(snack.name);
-    if (!snack.image) {
-      snack.image =
-        "https://dummyimage.com/400x400/6e6c6e/e9e9f5.png&text=No+Image";
-    }
     res.json({ success: true, payload: snack });
   } catch (error) {
     res
